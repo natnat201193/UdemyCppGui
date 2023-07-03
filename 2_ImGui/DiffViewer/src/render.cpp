@@ -222,5 +222,5 @@ void WindowClass::CreateDiff()
 
 void render(WindowClass &window_obj)
 {
-    window_class.Draw("File Diff Tool");
+    window_obj.Draw("File Diff Tool");
 }

@@ -18,14 +18,14 @@ option(ENABLE_CLANG_TIDY "Enable to add clang tidy." ON)
 option(ENABLE_CLANG_FORMAT "Enable to add clang-format." ON)
 
 include(Warnings)
-# include(Tools) # clang tidy and clang format
+include(Tools) # clang tidy and clang format
 include(ConfigSafeGuards)
 
-# add_clang_format_target() # needs python
+add_clang_format_target() # needs python
 
 # set (VCPKG_DIR ${CMAKE_SOURCE_DIR}/external/vcpkg)
 # you can set any other vcpkg installation on your system
-set (VCPKG_DIR ${CMAKE_SOURCE_DIR}/../../../../../vcpkg)
+set (VCPKG_DIR D:/Repositories/vcpkg)
 include(${VCPKG_DIR}/scripts/buildsystems/vcpkg.cmake)
 
 find_package(fmt CONFIG REQUIRED)
@@ -69,7 +69,7 @@ add_compile_definitions(NOMINMAX)
 target_set_warnings(TARGET ${PROJECT_NAME}
     ENABLE ${ENABLE_WARNINGS}
     AS_ERRORS ${ENABLE_WARNINGS_AS_ERRORS})
-# add_clang_tidy_msvc_to_target(${PROJECT_NAME})
+add_clang_tidy_msvc_to_target(${PROJECT_NAME})
 
 target_include_directories(${PROJECT_NAME} PUBLIC
     src
